@@ -1,4 +1,4 @@
-package com.example.itinovbank.domain.compte_bancaire.port;
+package com.example.itinovbank.domain.port;
 
 import org.springframework.stereotype.Service;
 

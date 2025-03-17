@@ -1,10 +1,11 @@
 package com.example.itinovbank.domain.compte_bancaire.service;
 
-import com.example.itinovbank.domain.client.Client;
-import com.example.itinovbank.domain.compte_bancaire.CompteBancaire;
-import com.example.itinovbank.domain.compte_bancaire.port.CompteBanquairePersistenceInterface;
-import com.example.itinovbank.domain.compte_bancaire.use_case.AjouterSoldeUseCase;
-import com.example.itinovbank.domain.compte_bancaire.use_case.RetirerSoldeUseCase;
+import com.example.itinovbank.domain.model.Client;
+import com.example.itinovbank.domain.model.CompteBancaire;
+import com.example.itinovbank.domain.port.CompteBanquairePersistenceInterface;
+import com.example.itinovbank.domain.use_case.AjouterSoldeUseCase;
+import com.example.itinovbank.domain.use_case.RetirerSoldeUseCase;
+import com.example.itinovbank.domain.service.CompteBancaireService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

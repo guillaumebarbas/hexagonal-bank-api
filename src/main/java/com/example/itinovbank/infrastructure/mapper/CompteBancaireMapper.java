@@ -1,6 +1,6 @@
 package com.example.itinovbank.infrastructure.mapper;
 
-import com.example.itinovbank.domain.compte_bancaire.CompteBancaire;
+import com.example.itinovbank.domain.model.CompteBancaire;
 import com.example.itinovbank.infrastructure.entity.CompteBancaireDatabase;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;

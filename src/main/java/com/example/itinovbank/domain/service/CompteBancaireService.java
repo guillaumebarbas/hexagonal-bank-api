@@ -1,10 +1,9 @@
-package com.example.itinovbank.domain.compte_bancaire.service;
+package com.example.itinovbank.domain.service;
 
-import com.example.itinovbank.domain.compte_bancaire.port.CompteBancaireServiceInterface;
-import com.example.itinovbank.domain.compte_bancaire.use_case.AjouterSoldeUseCase;
-import com.example.itinovbank.domain.compte_bancaire.use_case.RetirerSoldeUseCase;
+import com.example.itinovbank.domain.port.CompteBancaireServiceInterface;
+import com.example.itinovbank.domain.use_case.AjouterSoldeUseCase;
+import com.example.itinovbank.domain.use_case.RetirerSoldeUseCase;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.UUID;

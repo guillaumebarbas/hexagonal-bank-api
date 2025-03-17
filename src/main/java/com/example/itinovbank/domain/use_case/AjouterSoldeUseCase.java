@@ -1,7 +1,7 @@
-package com.example.itinovbank.domain.compte_bancaire.use_case;
+package com.example.itinovbank.domain.use_case;
 
-import com.example.itinovbank.domain.compte_bancaire.CompteBancaire;
-import com.example.itinovbank.domain.compte_bancaire.port.CompteBanquairePersistenceInterface;
+import com.example.itinovbank.domain.model.CompteBancaire;
+import com.example.itinovbank.domain.port.CompteBanquairePersistenceInterface;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;

@@ -1,4 +1,4 @@
-package com.example.itinovbank.domain.client;
+package com.example.itinovbank.domain.model;
 
 import lombok.AllArgsConstructor;
 

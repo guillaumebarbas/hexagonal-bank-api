@@ -1,8 +1,4 @@
-package com.example.itinovbank.domain.compte_bancaire;
-
-import com.example.itinovbank.domain.client.Client;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+package com.example.itinovbank.domain.model;
 
 import java.math.BigDecimal;
 import java.util.UUID;

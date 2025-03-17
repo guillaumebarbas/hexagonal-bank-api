@@ -1,6 +1,6 @@
-package com.example.itinovbank.domain.compte_bancaire.port;
+package com.example.itinovbank.domain.port;
 
-import com.example.itinovbank.domain.compte_bancaire.CompteBancaire;
+import com.example.itinovbank.domain.model.CompteBancaire;
 
 import java.util.UUID;
 

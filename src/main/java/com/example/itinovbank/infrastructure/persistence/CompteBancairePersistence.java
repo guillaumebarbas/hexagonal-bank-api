@@ -3,8 +3,8 @@ package com.example.itinovbank.infrastructure.persistence;
 // Controller -> Domain -> Service -> interface UseCase in -> UseCase implement in -> UseCase appele Service interface out -> Persistence implement out -> appel jpa
 // Controller -> Domain -> Service interface-> ServiceImpl appele useCase et out -> Persistence implement out -> appel jpa
 
-import com.example.itinovbank.domain.compte_bancaire.CompteBancaire;
-import com.example.itinovbank.domain.compte_bancaire.port.CompteBanquairePersistenceInterface;
+import com.example.itinovbank.domain.model.CompteBancaire;
+import com.example.itinovbank.domain.port.CompteBanquairePersistenceInterface;
 import com.example.itinovbank.infrastructure.mapper.CompteBancaireMapper;
 import com.example.itinovbank.infrastructure.repository.CompteBancaireJPA;
 import lombok.AllArgsConstructor;
