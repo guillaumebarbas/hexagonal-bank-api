@@ -21,11 +21,11 @@ public class CompteBancaireService implements CompteBancaireServiceInterface {
 
     @Override
     public void credit(UUID idCompteBancaire, BigDecimal montant) {
-        ajouterSoldeUseCase.executer(idCompteBancaire,montant);
+        ajouterSoldeUseCase.executer(idCompteBancaire, montant);
     }
 
     @Override
     public void debit(UUID idCompteBancaire, BigDecimal montant) {
-        retirerSoldeUseCase.executer(idCompteBancaire,montant);
+        retirerSoldeUseCase.executer(idCompteBancaire, montant);
     }
 }
