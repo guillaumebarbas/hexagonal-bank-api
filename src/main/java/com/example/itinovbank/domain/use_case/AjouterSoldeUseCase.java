@@ -11,13 +11,14 @@ import java.util.UUID;
 public class AjouterSoldeUseCase {
 
     CompteBanquairePersistenceInterface compteBanquairePersistence;
+
+    public AjouterSoldeUseCase(CompteBanquairePersistenceInterface compteBanquairePersistence) {
+        this.compteBanquairePersistence = compteBanquairePersistence;
+    }
+
     public void executer(UUID idCompteBancaire, BigDecimal montant) {
         CompteBancaire compteBancaire = compteBanquairePersistence.recupererCompteBancaire(idCompteBancaire);
         compteBancaire.ajouterSolde(montant);
         compteBanquairePersistence.sauvegarderCompteBancaire(compteBancaire);
-    }
-
-    public AjouterSoldeUseCase(CompteBanquairePersistenceInterface compteBanquairePersistence){
-        this.compteBanquairePersistence = compteBanquairePersistence;
     }
 }

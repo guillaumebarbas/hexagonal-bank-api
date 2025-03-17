@@ -4,23 +4,23 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 public class CompteBancaire {
-    private UUID id;
-    private String devise;
+    private final UUID id;
+    private final String devise;
     private BigDecimal solde;
-    private Client client;
+    private final Client client;
 
-    public CompteBancaire(UUID id, String devise, BigDecimal solde, Client client){
+    public CompteBancaire(UUID id, String devise, BigDecimal solde, Client client) {
         this.id = id;
         this.devise = devise;
         this.solde = solde;
         this.client = client;
     }
 
-    public void ajouterSolde(BigDecimal montantAjouter){
+    public void ajouterSolde(BigDecimal montantAjouter) {
         this.solde = this.solde.add(montantAjouter);
     }
 
-    public void retirerSolde(BigDecimal montantRetirer){
+    public void retirerSolde(BigDecimal montantRetirer) {
         if (solde.subtract(montantRetirer).compareTo(BigDecimal.ZERO) > 0) {
             this.solde = this.solde.subtract(montantRetirer);
         } else {

@@ -10,6 +10,7 @@ import com.example.itinovbank.infrastructure.repository.CompteBancaireJPA;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -27,5 +28,10 @@ public class CompteBancairePersistence implements CompteBanquairePersistenceInte
     @Override
     public CompteBancaire sauvegarderCompteBancaire(CompteBancaire compteBancaire) {
         return compteBancaireMapper.versCompteBancaire(compteBancaireJPA.save(compteBancaireMapper.versCompteBancaireDatabase(compteBancaire)));
+    }
+
+    @Override
+    public List<CompteBancaire> recupererListCompteBancaireClient(UUID idClient) {
+        return compteBancaireMapper.versListeCompteBancaire(compteBancaireJPA.findByClientDatabaseId(idClient));
     }
 }
