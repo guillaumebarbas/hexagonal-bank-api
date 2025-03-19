@@ -3,6 +3,7 @@ package com.example.itinovbank.domain.service;
 import com.example.itinovbank.domain.model.Client;
 import com.example.itinovbank.domain.model.CompteBancaire;
 import com.example.itinovbank.domain.port.CompteBanquairePersistenceInterface;
+import com.example.itinovbank.domain.port.HistoriqueOperationsPersistenceInterface;
 import com.example.itinovbank.domain.use_case.AjouterSoldeUseCase;
 import com.example.itinovbank.domain.use_case.RetirerSoldeUseCase;
 import org.junit.jupiter.api.DisplayName;
@@ -17,7 +18,9 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.argThat;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -26,11 +29,13 @@ class CompteBancaireServiceTest {
 
     @Mock
     CompteBanquairePersistenceInterface compteBanquairePersistence;
+    @Mock
+    HistoriqueOperationsPersistenceInterface historiqueOperationsPersistenceInterface;
     @InjectMocks
-    AjouterSoldeUseCase ajouterSoldeUseCase = new AjouterSoldeUseCase(compteBanquairePersistence);
+    AjouterSoldeUseCase ajouterSoldeUseCase = new AjouterSoldeUseCase(compteBanquairePersistence, historiqueOperationsPersistenceInterface);
     @InjectMocks
-    RetirerSoldeUseCase retirerSoldeUseCase = new RetirerSoldeUseCase(compteBanquairePersistence);
-    CompteBancaireService compteBancaireService = new CompteBancaireService(ajouterSoldeUseCase,retirerSoldeUseCase);
+    RetirerSoldeUseCase retirerSoldeUseCase = new RetirerSoldeUseCase(compteBanquairePersistence, historiqueOperationsPersistenceInterface);
+    CompteBancaireService compteBancaireService = new CompteBancaireService(ajouterSoldeUseCase, retirerSoldeUseCase);
 
     @DisplayName("Le compte devrait avoir le montant en plus sur son compte après ajout")
     @Test
@@ -45,6 +50,7 @@ class CompteBancaireServiceTest {
 
         verify(compteBanquairePersistence).sauvegarderCompteBancaire(argThat(compteBancaire ->
                 compteBancaire.getSolde().compareTo(new BigDecimal(20)) == 0));
+        verify(historiqueOperationsPersistenceInterface, times(1)).enregistrerHistoriqueOperationClient(any());
     }
 
     @DisplayName("Le compte devrait avoir le montant en moins sur son compte après débit")
@@ -60,6 +66,8 @@ class CompteBancaireServiceTest {
 
         verify(compteBanquairePersistence).sauvegarderCompteBancaire(argThat(compteBancaire ->
                 compteBancaire.getSolde().compareTo(new BigDecimal(3)) == 0));
+        verify(historiqueOperationsPersistenceInterface, times(1)).enregistrerHistoriqueOperationClient(any());
+
     }
 
     @DisplayName("Si on veut retirer plus que le solde du compte alors une exception est levée")

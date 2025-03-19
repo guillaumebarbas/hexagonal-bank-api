@@ -6,8 +6,8 @@ import java.util.UUID;
 public class CompteBancaire {
     private final UUID id;
     private final String devise;
-    private BigDecimal solde;
     private final Client client;
+    private BigDecimal solde;
 
     public CompteBancaire(UUID id, String devise, BigDecimal solde, Client client) {
         this.id = id;
