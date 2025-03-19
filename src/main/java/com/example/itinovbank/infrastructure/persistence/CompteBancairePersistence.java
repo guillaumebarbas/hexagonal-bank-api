@@ -20,6 +20,7 @@ public class CompteBancairePersistence implements CompteBanquairePersistenceInte
 
     private final CompteBancaireJPA compteBancaireJPA;
     private final CompteBancaireMapper compteBancaireMapper;
+
     @Override
     public CompteBancaire recupererCompteBancaire(UUID idCompteBancaire) {
         return compteBancaireMapper.versCompteBancaire(Objects.requireNonNull(compteBancaireJPA.findById(idCompteBancaire).orElse(null)));

@@ -1,12 +1,13 @@
 package com.example.itinovbank.domain.model;
 
-import lombok.AllArgsConstructor;
-
 import java.util.UUID;
 
-@AllArgsConstructor
 public class Client {
-    private UUID id;
+    private final UUID id;
+
+    public Client(UUID id) {
+        this.id = id;
+    }
 
     public UUID getId() {
         return id;

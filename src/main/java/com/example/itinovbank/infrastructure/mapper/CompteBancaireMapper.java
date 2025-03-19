@@ -11,12 +11,13 @@ import java.util.List;
 @Component
 public class CompteBancaireMapper {
     private ClientMapper clientMapper;
-    public CompteBancaire versCompteBancaire(CompteBancaireDatabase compteBancaireDatabase){
-        return new CompteBancaire(compteBancaireDatabase.getId(),compteBancaireDatabase.getDevise(),compteBancaireDatabase.getMontant(),clientMapper.versClient(compteBancaireDatabase.getClientDatabase()));
+
+    public CompteBancaire versCompteBancaire(CompteBancaireDatabase compteBancaireDatabase) {
+        return new CompteBancaire(compteBancaireDatabase.getId(), compteBancaireDatabase.getDevise(), compteBancaireDatabase.getMontant(), clientMapper.versClient(compteBancaireDatabase.getClientDatabase()));
     }
 
-    public CompteBancaireDatabase versCompteBancaireDatabase(CompteBancaire compteBancaire){
-        return new CompteBancaireDatabase(compteBancaire.getId(), compteBancaire.getDevise(), compteBancaire.getSolde(),clientMapper.versClientDatabase(compteBancaire.getClient()));
+    public CompteBancaireDatabase versCompteBancaireDatabase(CompteBancaire compteBancaire) {
+        return new CompteBancaireDatabase(compteBancaire.getId(), compteBancaire.getDevise(), compteBancaire.getSolde(), clientMapper.versClientDatabase(compteBancaire.getClient()));
     }
 
     public List<CompteBancaire> versListeCompteBancaire(List<CompteBancaireDatabase> comptesBancairesDatabase) {

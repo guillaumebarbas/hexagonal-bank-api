@@ -27,4 +27,12 @@ public class CompteBancaireController {
         compteBancaireService.credit(compteBancaireRequest.getId(), decimal);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @PatchMapping("/debit")
+    public ResponseEntity<HttpStatus> debit(@RequestBody Request compteBancaireRequest) {
+        BigDecimal decimal = compteBancaireRequest.getMontant();
+        compteBancaireService.debit(compteBancaireRequest.getId(), decimal
+        );
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
